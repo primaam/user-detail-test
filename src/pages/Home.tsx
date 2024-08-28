@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import { RootState, AppDispatch } from "../../redux/store";
+import { RootState, AppDispatch } from "../redux/store";
 import {
     getUsersStart,
     getUsersSuccess,
@@ -12,9 +12,9 @@ import {
     addUser,
     deleteUser,
     editUser,
-} from "../../redux/reducer/userRed";
-import { User } from "../../types/Users";
-import UserCard from "../../component/UserCard";
+} from "../redux/reducer/userRed";
+import { User } from "../types/Users";
+import { UserCard, Header } from "../component";
 
 const initialFormData: User = {
     id: 0,
@@ -89,7 +89,6 @@ const Home: React.FC = () => {
     };
 
     const StyledContainer = styled(Container)(({ theme }) => ({
-        backgroundColor: "green",
         width: "100%",
         display: "flex",
         flexDirection: "column",
@@ -109,10 +108,7 @@ const Home: React.FC = () => {
 
     return (
         <StyledContainer maxWidth="xl">
-            <StyledBox>
-                <Typography>User List</Typography>
-                <Button>Add</Button>
-            </StyledBox>
+            <Header onAddUserClick={handleAddUser} />
             {users.length == 0 ? (
                 <></>
             ) : (

@@ -10,16 +10,19 @@ const StyledCard = styled(Card)(({ theme }) => ({
     flexDirection: "row",
     maxWidth: "800px",
     width: "100%",
-    // margin: "auto",
-    // padding: "20px",
-    backgroundColor: "red",
     border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: "8px",
-    // overflow: "hidden",
-    // boxShadow: `0px 4px 8px rgba(0, 0, 0, 0.1)`,
+    padding: "10px 20px",
+    marginBottom: "10px",
     [theme.breakpoints.down("sm")]: {
         maxWidth: "400px",
         flexDirection: "column",
+        textAlign: "center",
+        height: "300px",
+    },
+    [theme.breakpoints.down("xs")]: {
+        maxWidth: "300px",
+        height: "300px",
     },
 }));
 
@@ -29,9 +32,20 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
     height: "160px",
     width: "160px",
     [theme.breakpoints.down("sm")]: {
-        height: "120px",
-        width: "120px",
+        height: "100px",
+        width: "100px",
         margin: "auto",
+    },
+}));
+
+const StyledCardDetail = styled(Box)(({ theme }) => ({
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    [theme.breakpoints.down("sm")]: {
+        flex: 0.5,
+        padding: "4px",
     },
 }));
 
@@ -43,7 +57,6 @@ const StyledCardActions = styled(CardActions)(({ theme }) => ({
     gap: "8px",
     [theme.breakpoints.down("sm")]: {
         justifyContent: "center",
-        flexDirection: "column",
     },
 }));
 
@@ -64,24 +77,25 @@ const UserCard: React.FC<UserCardProps> = ({ user, onEdit, onDelete }) => {
     return (
         <StyledCard>
             <StyledCardMedia image={`https://picsum.photos/200?random=${user.id}`} />
-            <Box sx={{ padding: "16px", display: "flex", flexDirection: "column", flex: 1 }}>
+            <StyledCardDetail>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {user.name}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="pallete.secondary.main">
                         {user.email}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="pallete.secondary.main">
                         {user.phone}
                     </Typography>
                 </CardContent>
-            </Box>
+            </StyledCardDetail>
+
             <StyledCardActions>
                 <Button
                     size="small"
                     onClick={onEdit}
-                    sx={{ display: "flex", alignItems: "center" }}
+                    sx={{ display: "flex", alignItems: "center", gap: "10px" }}
                 >
                     <EditIcon />
                     <EditButtonText>Edit</EditButtonText>
