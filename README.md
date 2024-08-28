@@ -30,4 +30,4 @@ This project is a CRUD application built with React, Axios, and Redux. It allows
 
 ## Website
 
-A deployed version of the project can be viewed at this [https://user-detail-test.vercel.app/](links)
+A deployed version of the project can be viewed at this [links](https://user-detail-test.vercel.app/)
