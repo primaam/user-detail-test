@@ -20,7 +20,7 @@ const HeaderTitle = styled(Typography)(({ theme }) => ({
     flexGrow: 1,
     fontWeight: "bold",
     fontSize: "24px",
-    color: theme.palette.secondary.dark,
+    color: `${theme.palette.secondary.dark}`,
 }));
 
 const AddUserButton = styled(Button)(({ theme }) => ({
